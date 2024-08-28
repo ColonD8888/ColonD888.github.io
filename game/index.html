@@ -18,6 +18,15 @@
         $('head').append('<link rel="stylesheet" type="text/css" href="./cs/index.css?ver='+time.getTime()+'">');
         $('head').append('<script src="js/index.js?ver='+time.getTime()+ '"><' + '/script>');
         
+
+        $(document).ready(function() {
+            document.getElementById("answer").onkeydown = function(e){
+                if(e.keyCode == 13){
+                    submit();
+                }
+            };
+        });
+
         function submit() {
             var answer = document.getElementById("answer").value;
             let upperletter = /[A-Z]/
