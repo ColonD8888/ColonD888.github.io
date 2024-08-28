@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head >
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Colond</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!--<link rel="apple-touch-icon" sizes="180x180" href="image/favicon_io/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="image/favicon_io/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="image/favicon_io/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">-->
+	</head>
+    
+    <script>
+        const time = new Date();
+        $('head').append('<link rel="stylesheet" type="text/css" href="./cs/index.css?ver='+time.getTime()+'">');
+        $('head').append('<script src="js/index.js?ver='+time.getTime()+ '"><' + '/script>');
+        
+        function submit() {
+            var answer = document.getElementById("answer").value;
+            let upperletter = /[A-Z]/
+            for (var i = 0; i <answer.length; i++){
+                if (upperletter.test(answer[i])) {
+                    answer = answer.replace(answer[i], answer[i].toLowerCase()); 
+                }
+            }
+            
+            $("#result").css("background-image", "none");
+            $("#result-page1").css("background-image", "none")
+            $("#result-page2").css("background-image", "none")
+            $("#image-slider").css("visibility", "hidden")
+            sliding = false;
+            switch (answer){
+                case "救救我啊我救我": 
+                    $("#image-slider").css("visibility", "visible");
+                    $("#result-page1").css("background-image", "url('img/hint1.png?ver="+time.getTime()+"')")
+                    $("#result-page2").css("background-image", "url('img/hint2.png?ver="+time.getTime()+"')")
+                    moveimageslider();
+                    break;
+                case "笑口常開": 
+                    $("#result").css("background-image", "url('img/pass.png?ver="+time.getTime()+"')")
+                    break;
+                case "plug":
+                    $("#result").css("background-image", "url('img/PLUG.png?ver="+time.getTime()+"')")
+                    break; 
+                default: 
+                    $("#result").css("background-image", "url('img/404.png?ver="+time.getTime()+"')")
+                    break;
+            }
+        }
+        
+        function moveimageslider(){
+            const gallery = document.querySelector(".gallery");
+            const indicators = document.querySelectorAll(".indicator");
+            const images = document.querySelectorAll(".resultpage");
+
+            indicators.forEach((element, index) => {
+                element.addEventListener("click", () => {
+                    images[index].scrollIntoView({
+                    block: "center",
+                    behavior: "smooth",
+                    });
+                });
+            });
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    const targetIndex = entry.target.dataset.index;
+                    if (entry.isIntersecting) {
+                        indicators[targetIndex].classList.add("active");
+                    } else {
+                        indicators[targetIndex].classList.remove("active");
+                    }
+                });
+            },
+            {
+                root: null,
+                rootMargin: "0px 0px 0px 0px",
+                threshold: 0.5,
+            }
+            );
+
+            images.forEach((element) => {
+                observer.observe(element);
+            });
+        }
+
+    </script>
+
+	<body>
+        <div class = "backgroundimg" id = "result">
+            <div class = "image-slider" id = "image-slider">
+            <div class = "backgroundimg resultpage" id = "result-page1" data-index="0"></div>
+            <div class = "backgroundimg resultpage" id = "result-page2" data-index="1"></div>
+            <div class="indicators">
+                <div class="indicator active" id = "indicator1"></div>
+                <div class="indicator" id = "indicator2"></div>
+            </div>
+            </div>
+        </div>
+        <div id = "inputbar">
+            <input type="text" id="answer" name="answer" placeholder="救救我啊我救我">
+            <button id="submit" onclick="submit()"></button>
+        </div>
+    </body>
+</html>
