@@ -1,0 +1,13 @@
+body{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;  
+    height:100vh;
+    height:100dvh;
+    margin:0px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
