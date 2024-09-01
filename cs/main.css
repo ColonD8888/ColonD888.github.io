@@ -1,0 +1,31 @@
+p, a , pre {
+    color: black;
+    font-size: 1rem;
+    margin:0 auto;    
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+a,a:hover,a:active,a:visited,a:link,a:focus{
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    outline:none;
+    text-decoration: none;
+}
+
+a, label, button{
+    cursor: url('../img/curse_hover.png') 35 35, pointer;
+}
+
+input, input:-webkit-autofill, input:-webkit-autofill:focus, input:-webkit-autofill:hover{
+    cursor: url('../img/curse.png') 25 25, default;
+}
+body, html{
+    cursor: url('../img/curse.png') 25 25, auto;
+}
+
+.backgroundimg{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}

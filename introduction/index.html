@@ -7,18 +7,28 @@
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <!--<link rel="apple-touch-icon" sizes="180x180" href="image/favicon_io/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="image/favicon_io/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="image/favicon_io/favicon-16x16.png">
-		<link rel="manifest" href="/site.webmanifest">-->
+        <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
 	</head>
     <script>
         const time = new Date();
+        $('head').append('<link rel="stylesheet" type="text/css" href="../../cs/main.css?ver='+time.getTime()+'">');
         $('head').append('<link rel="stylesheet" type="text/css" href="./cs/index.css?ver='+time.getTime()+'">');
         $('head').append('<script src="js/index.js?ver='+time.getTime()+ '"><' + '/script>');
     </script>
 
 	<body>
+        <div id = "searchingblock">
+        <div id = "searchingbar">
+        <a  id="logobar" href="../"><img id="logo" src="./img/searchlogo.PNG"></a>
+        <div id = "inputblock">
+            <div id = "inputbar">
+                <div id="submit" onclick="submit()"><div class="backgroundimg" id="submit-icon"></div></div>
+                <input type="text" id="answer" name="answer" placeholder="請輸入關鍵字">
+            </div>
+        </div>
+        </div>
+        </div>
+
         <div class = "backgroundimg" id = "result">
             <div class = "image-slider" id = "image-slider">
             <div class = "backgroundimg resultpage" id = "result-page1" data-index="0"></div>
@@ -28,10 +38,6 @@
                 <div class="indicator" id = "indicator2"></div>
             </div>
             </div>
-        </div>
-        <div id = "inputbar">
-            <input type="text" id="answer" name="answer" placeholder="救救我啊我救我">
-            <button id="submit" onclick="submit()"></button>
         </div>
     </body>
 </html>

@@ -6,7 +6,44 @@ $(document).ready(function() {
     };
 });
 
+var firstsubmit = true;
+
+function pagechange(){
+    $("#searchingblock").css({
+        "height": "5rem",
+    })
+    $("#searchingbar").css({
+        "margin": "auto",
+        "display": "flex",
+        "width": "90%",
+        "height": "100%",
+    })
+    $("#logo").css({
+        "margin": "auto",
+        "width": "auto",
+        "height": "3rem",
+        "background-position": "center",
+    })
+    $("#inputblock").css({
+        "margin": "auto",
+        "width": "calc(100% - 10rem)",
+        "height": "max-content",
+    })
+    $("#inputbar").css({
+        "margin": "auto",
+        "width": "95%",
+        "max-width": "none",
+    })
+    $("#result").css({
+        "display": "block",
+    })
+}
+
 function submit() {
+    if (firstsubmit){
+        pagechange();
+        firstsubmit = false;
+    }
     var answer = document.getElementById("answer").value;
     let upperletter = /[A-Z]/
     for (var i = 0; i <answer.length; i++){
