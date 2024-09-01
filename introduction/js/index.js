@@ -6,6 +6,11 @@ $(document).ready(function() {
     };
 });
 
+
+window.onload=function(){
+    $("body").css("visibility", "visible");
+}
+
 var firstsubmit = true;
 
 function pagechange(){
