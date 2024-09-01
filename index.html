@@ -15,10 +15,12 @@
 		<link rel="icon" type="image/x-icon" href="./img/favicon.ico">
 	</head>
     <script>
-        const time = new Date();
-		$('head').append('<script src="js/index.js?ver='+time.getTime()+ '"><' + '/script>');
-        $('head').append('<link rel="stylesheet" type="text/css" href="./cs/index.css?ver='+time.getTime()+'">');
-		$('head').append('<link rel="stylesheet" type="text/css" href="./cs/main.css?ver='+time.getTime()+'">');
+		const time = new Date();
+		$(document).ready(function(){
+			$('head').append('<script src="js/index.js?ver='+time.getTime()+ '"><' + '/script>');
+			$('head').append('<link rel="stylesheet" type="text/css" href="./cs/index.css?ver='+time.getTime()+'">');
+			$('head').append('<link rel="stylesheet" type="text/css" href="./cs/main.css?ver='+time.getTime()+'">');
+		});
     </script>
 	<body>
         <a href="/introduction/" class = "gamebutton" id = "game_introduction">

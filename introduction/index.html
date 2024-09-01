@@ -16,9 +16,11 @@
 	</head>
     <script>
         const time = new Date();
-        $('head').append('<link rel="stylesheet" type="text/css" href="../../cs/main.css?ver='+time.getTime()+'">');
-        $('head').append('<link rel="stylesheet" type="text/css" href="./cs/index.css?ver='+time.getTime()+'">');
-        $('head').append('<script src="js/index.js?ver='+time.getTime()+ '"><' + '/script>');
+        $(document).ready(function(){
+                $('head').append('<link rel="stylesheet" type="text/css" href="../../cs/main.css?ver='+time.getTime()+'">');
+                $('head').append('<link rel="stylesheet" type="text/css" href="./cs/index.css?ver='+time.getTime()+'">');
+                $('head').append('<script src="js/index.js?ver='+time.getTime()+ '"><' + '/script>');
+        });
     </script>
 
 	<body>
