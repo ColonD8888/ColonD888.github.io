@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 
 window.onload=function(){
-    $("body").css("visibility", "visible");
+    $("body").css("opacity", "1");
 }
 
 var firstsubmit = true;

@@ -1,3 +1,3 @@
 window.onload=function(){
-    $("body").css("visibility", "visible");
+    $("body").css("opacity", "1");
 }
