@@ -18,6 +18,8 @@ body{
 .gamebutton{
     width: 85vw;
     width: 85dvw;
+    max-width: 100vh;
+    max-width: 100dvh;
     height: 5rem;
     display: flex;
     justify-content: center;
